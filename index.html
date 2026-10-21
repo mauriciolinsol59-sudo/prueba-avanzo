@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulacro AVANZO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+
+  <div class="booklet-head">
+    <div class="brand">Simulacro AVANZO</div>
+    <div class="tag" id="head-tag">EXAMEN DE PRÁCTICA</div>
+  </div>
+
+  <!-- ============ LOGIN / REGISTRO ============ -->
+  <section class="screen active" id="screen-login">
+    <div class="home-hero">
+      <h1>Registro de estudiante</h1>
+      <p>Ingresa con tu correo institucional. La primera vez se crea tu registro; después, todo tu avance queda guardado en él.</p>
+    </div>
+    <form class="login-form" id="login-form" autocomplete="off" novalidate>
+      <div class="field">
+        <label for="f-name">Nombre completo</label>
+        <input id="f-name" type="text" autocomplete="name">
+        <div class="hint">Solo es necesario la primera vez.</div>
+      </div>
+      <div class="field">
+        <label for="f-email">Usuario (correo institucional)</label>
+        <input id="f-email" type="email" placeholder="nombre@clases.edu.sv" autocomplete="username" autocapitalize="none">
+      </div>
+      <div class="field">
+        <label for="f-pass">Contraseña</label>
+        <input id="f-pass" type="password" autocomplete="current-password">
+      </div>
+      <div class="form-error" id="login-error" role="alert"></div>
+      <button class="start-btn" type="submit"><span>Ingresar</span><span>&rarr;</span></button>
+    </form>
+  </section>
+
+  <!-- ============ HOME ============ -->
+  <section class="screen" id="screen-home">
+    <div class="home-hero">
+      <h1>Practica como si fuera el día real.</h1>
+      <p>Cuatro exámenes cronometrados, uno por cada área de la prueba AVANZO. Cada examen se puede presentar una sola vez.</p>
+    </div>
+
+    <div class="stat-row" id="stat-row"></div>
+
+    <div class="exam-list" id="exam-list"></div>
+
+    <button class="retry-btn" id="btn-csv" type="button">Descargar mi registro (.csv)</button>
+    <div class="fineprint">Tus respuestas se guardan automáticamente. Si sales de la pestaña durante un examen, se cierra y no podrás reiniciarlo.</div>
+  </section>
+
+  <!-- ============ INSTRUCCIONES ============ -->
+  <section class="screen" id="screen-brief">
+    <div class="home-hero">
+      <h1 id="brief-title">Examen</h1>
+      <p id="brief-meta"></p>
+    </div>
+    <ul class="rules">
+      <li>El tiempo corre en cuanto presionas <strong>Comenzar</strong>.</li>
+      <li>Tus respuestas se guardan automáticamente en tu registro.</li>
+      <li>Solo tienes <strong>un intento</strong> por examen.</li>
+      <li class="warn">Si cambias de pestaña, minimizas o sales de la ventana, el examen se cierra y NO podrás volver a iniciarlo.</li>
+    </ul>
+    <button class="start-btn" id="btn-brief-go" type="button"><span>Comenzar</span><span>&rarr;</span></button>
+    <button class="retry-btn btn-gap" id="btn-brief-back" type="button">Volver</button>
+  </section>
+
+  <!-- ============ EXAM ============ -->
+  <section class="screen" id="screen-exam">
+    <div class="exam-top">
+      <div class="exam-meta">
+        <span class="area-chip" id="exam-area-chip">Lenguaje</span>
+        <span class="timer" id="exam-timer">45:00</span>
+      </div>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+      <div class="progress-label" id="progress-label">Pregunta 1 de 30</div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-number" id="q-number">PREGUNTA 01</div>
+      <div id="q-context"></div>
+      <div id="q-visual"></div>
+      <div class="q-text" id="q-text"></div>
+      <div id="q-options"></div>
+    </div>
+
+    <div class="nav-row">
+      <button class="nav-btn ghost" id="btn-prev">Anterior</button>
+      <button class="nav-btn primary" id="btn-next">Siguiente</button>
+    </div>
+  </section>
+
+  <!-- ============ EXAMEN CERRADO ============ -->
+  <section class="screen" id="screen-void">
+    <div class="home-hero"><h1>Examen cerrado</h1></div>
+    <div class="void-box" id="void-text"></div>
+    <button class="retry-btn" id="btn-void-home" type="button">Volver al inicio</button>
+  </section>
+
+  <!-- ============ RESULTS ============ -->
+  <section class="screen" id="screen-results">
+    <div class="score-block">
+      <div class="res-area" id="res-area"></div>
+      <div class="score-big" id="score-big">0%</div>
+      <div class="score-sub" id="score-sub">0 de 0 correctas</div>
+    </div>
+
+    <div class="area-bars" id="area-bars"></div>
+
+    <div class="review-title">REVISIÓN DE PREGUNTAS FALLADAS</div>
+    <div id="review-list"></div>
+
+    <button class="retry-btn" id="btn-retry" type="button">Volver al inicio</button>
+  </section>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

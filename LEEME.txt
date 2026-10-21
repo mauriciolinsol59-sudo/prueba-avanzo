@@ -1,0 +1,7 @@
+Archivos extraídos de simulador-avanzo.html
+
+index.html: estructura de la página.
+styles.css: estilos visuales extraídos del bloque <style>.
+script.js: lógica, preguntas, textos y gráficos SVG extraídos del bloque <script>.
+
+Para abrir el simulador, abre index.html en un navegador. La fuente tipográfica se carga desde Google Fonts, por lo que esa parte requiere conexión a Internet.
